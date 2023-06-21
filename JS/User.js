@@ -1,20 +1,20 @@
-function User(_id, _name, _address, _email,_math,_physics,_chem,_ngay,_luong,_company,_receipt,_rating) {
-    this.id = _id;
-    this.name = _name;
-    this.address = _address;
-    this.email = _email;
-    this.math = _math;
-    this.physics = _physics;
-    this.chem = _chem;
+  function User(id, name, address, email, math, physics, chem, daysWorked, salaryRate, company, receipt, rating) {
+    this.id = id;
+    this.name = name;
+    this.address = address;
+    this.email = email;
+    this.math = math;
+    this.physics = physics;
+    this.chem = chem;
     this.avg = function() {
       return (this.math + this.physics + this.chem) / 3;
     };
-    this.ngay = _ngay;
-    this.luong = _luong;
-    this.tong = function() {
-      return this.ngay * this.luong;
+    this.daysWorked = daysWorked;
+    this.salaryRate = salaryRate;
+    this.totalSalary = function() {
+      return this.daysWorked * this.salaryRate;
     };
-    this.company = _company;
-    this.receipt = _receipt;
-    this.rating = _rating;
+    this.company = company;
+    this.receipt = receipt;
+    this.rating = rating;
   }

@@ -19,7 +19,7 @@ function renderUser() {
 <td>Days Worked: ${user.ngay}<br>Salary Rate: ${user.luong}<br>Tổng Lương: ${tong}</td>
 <td>Company: ${user.company}<br>Giá Trị GT: ${user.receipt}<br>Rating: ${user.rating}</td>
 <td><button onclick="delUser('${user.id}')" class="btn btn-danger mb-1">Xóa</button>
-<button data-toggle="modal" data-target="#myModal" onclick="edituser('${user.id}')" class="btn btn-warning text-white">Đổi</button></td>
+<button data-toggle="modal" data-target="#myModal" onclick="editUser('${user.id}')" class="btn btn-warning text-white">Đổi</button></td>
 </tr>
 `;
   }
@@ -33,15 +33,15 @@ function addUser() {
     arrUser.push(user);
     renderUser();
     // reset
-    autoEnterInputs("", "", "", "", "", "", "", "");
+    autoEnterInputs("", "", "", "", "", "", "", "", "", "", "", "");
   }
 }
 
 document.getElementById("btnThemNV").onclick = addUser;
 
 // delete function------------------------------------
-function delUser(taiKhoan) {
-  var index = findUser(taiKhoan);
+function delUser(id) {
+  var index = findUser(id);
   if (index != -1) {
     arrUser.splice(index, 1);
     renderUser();
@@ -49,15 +49,15 @@ function delUser(taiKhoan) {
 }
 
 //edit function---------------------------------------
-function editUser(taiKhoan) {
+function editUser(id) {
   document.getElementById("btnCapNhat").style.display = "inline-block";
   document.getElementById("id").readOnly = true;
 
-  var index = findUser(taiKhoan);
+  var index = findUser(id);
   var user = arrUser[index];
 
   autoEnterInputs(
-    user.taiKhoan,
+    user.id,
     user.name,
     user.email,
     user.password,
@@ -72,7 +72,7 @@ function editUser(taiKhoan) {
 // update function (editing)
 function updateUser() {
   var fixedUser = getInputs();
-  var index = findUser(fixedUser.taiKhoan);
+  var index = findUser(fixedUser.id);
   arrUser[index] = fixedUser;
   renderUser();
 }

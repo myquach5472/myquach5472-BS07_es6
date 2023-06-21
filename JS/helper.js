@@ -14,8 +14,8 @@ function getInputs() {
     var receipt = document.getElementById("ReceiptValue").value*1;
     var rating = document.getElementById("Rating").value;
   
-    var user = new User(_id, _name, _address, _email,_math,_physics,_chem,_ngay,_luong,_company,_receipt,_rating);
-    tableList.push(user);
+    var user = new User(id, name, address, email,math,physics,chem,ngay,luong,company,receipt,rating);
+    return user;
 
   }
   
