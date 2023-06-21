@@ -4,11 +4,14 @@ var arrUser = [];
 // render--------------------------------------
 function renderUser() {
   var content = "";
+  var searchInput = document.getElementById("searchInput").value.toLowerCase();
 
   for (var i = 0; i < arrUser.length; i++) {
     var user = arrUser[i];
     var avg = user.avg();
     var tong = user.tong();
+    var userName = user.name.toLowerCase();
+    if (userName.includes(searchInput)) {
     content += `
 <tr>
 <td>${user.id}</td>
@@ -22,9 +25,10 @@ function renderUser() {
 <button data-toggle="modal" data-target="#myModal" onclick="editUser('${user.id}')" class="btn btn-warning text-white">Đổi</button></td>
 </tr>
 `;
-  }
+  }}
   document.getElementById("tableDanhSach").innerHTML = content;
 }
+document.getElementById("searchInput").addEventListener("input", renderUser);
 // ------------------------------------------------
 
 function addUser() {

@@ -8,7 +8,7 @@ function getInputs() {
     var math = document.getElementById("Math").value*1;
     var physics = document.getElementById("Physics").value*1;
     var chem = document.getElementById("Chem").value*1;
-    var daysWorked = document.getElementById("DaysWorked").value*1;
+    var daysWorked = parseFloat(document.getElementById("DaysWorked").value);
     var salaryRate = document.getElementById("SalaryRate").value*1;
     var company = document.getElementById("Company").value;
     var receipt = document.getElementById("ReceiptValue").value*1;
